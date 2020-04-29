@@ -135,17 +135,20 @@
                 //         "une|" +
                 //         "Bougie|" + "de|" + "plus";
                 // } else {
-                    message = "Today is|" +
+                    message = "Today|" +
+                        "is|" +
                         "as|" +
                         "beautiful" +
                         "as|" +
                         "other|" +
                         "days|" +
                         "but|" +
-                        "you realize|" +
+                        "you|" +
+                        "realize|" +
                         "another|" +
                         "year|" +
-                        "has gone|" +
+                        "has|" +
+                        "gone|" +
                         "in a|" +
                         "blink|" +
                         "of the|" +
@@ -838,7 +841,9 @@
                 }
             };
         }());
-        S.init();
+        (function() {
+            S.init();
+        })();
     </script>
     <audio autoplay="autoplay" src="audios/hbd.mp3" loop="loop">
         Votre navigateur actuel ne prend pas en charge la lecture de musique.
