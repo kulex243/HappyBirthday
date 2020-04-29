@@ -118,8 +118,12 @@
     </div>
     <canvas class="canvas" width="1820" height="905"></canvas>
     <p class="text" style="color: #0035ff;font-weight: bolder;">
-        happy birthday Chadh
+        Happy Birthday Chadh Avul
     </p>
+    <audio id="son" loop>
+        <source id="son1" type="audio/mpeg">
+        Votre navigateur actuel ne prend pas en charge la lecture de musique.
+    </audio>
     <script>
         const S = {
             init: function () {
@@ -127,18 +131,22 @@
                 document.body.classList.add('body--ready');
                 //Messages
                 let message;
-                // if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                //     message = "Happy|" +
-                //         "Birth|" + "day|" +
-                //         "Chadh|" +
-                //         "Avul|" +
-                //         "une|" +
-                //         "Bougie|" + "de|" + "plus";
-                // } else {
-                message = "Today|" +
+                if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    message = "Happy|" +
+                        "Birth|" + "day|" +
+                        "Chadh|" +
+                        "Avul|" +
+                        "une|" +
+                        "Bougie|" +
+                        "de|" +
+                        "plus|" +
+                        ""
+                    ;
+                } else {
+                    message = "Today|" +
                     "is|" +
                     "as|" +
-                    "beautiful" +
+                    "beautiful|" +
                     "as|" +
                     "other|" +
                     "days|" +
@@ -225,7 +233,7 @@
                     "are|" +
                     "different|" +
                     "real|" +
-                    "story" +
+                    "story|" +
                     "of|" +
                     "your|" +
                     "life|" +
@@ -238,7 +246,7 @@
                     "don't|" +
                     "worry|" +
                     "because|" +
-                    "God" +
+                    "God|" +
                     "has|" +
                     "your|" +
                     "back|" +
@@ -293,7 +301,7 @@
                     "mukaly|" +
                     "Avul|" +
                     "Chadh 😊";
-                // }
+                }
                 S.UI.simulate(message)
                 S.Drawing.loop(function () {
                     S.Shape.render();
@@ -501,7 +509,7 @@
             this.p = new S.Point({
                 x: x,
                 y: y,
-                z: 5,
+                z: 2,
                 a: 1,
                 h: 0
             });
@@ -844,22 +852,17 @@
 
 
         function autoplay() {
-            let son = document.getElementById('son');
-            if (!son.autoplay || son.ended) {
-                son.src = "audios/hbd.mp3";
-                son.autoplay = true;
-                son.load();
-            }
+            const son = document.getElementById('son');
+            son.src = "audios/hbd.mp3";
+            son.autoplay = true;
+            son.load();
         }
+
         (function () {
             autoplay();
             S.init();
         })();
     </script>
-    <audio id="son">
-        <source id="son1" type="audio/mpeg">
-        Votre navigateur actuel ne prend pas en charge la lecture de musique.
-    </audio>
 </body>
 
 </html>
